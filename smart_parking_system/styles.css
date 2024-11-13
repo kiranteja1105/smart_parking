@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background */
+    color: #d1d1d1; /* Light gray text */
+}
+
+header {
+    background: #32CD32; /* Fluorescent green */
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+
+
+nav a:hover {
+    color: #32CD32; /* Fluorescent green on hover */
+}
+
+
+.content {
+    padding: 30px;
+    background: #1e1e1e; /* Dark background */
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+}
+
+/* Footer */
+footer {
+    background: #32CD32;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Form Styles */
+form#bookingForm {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+form#bookingForm input, form#bookingForm select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #32CD32; /* Fluorescent green borders */
+    border-radius: 5px;
+    background-color: #121212; /* Dark input background */
+    color: #d1d1d1;
+}
+
+form#bookingForm button {
+    padding: 10px;
+    background-color: #32CD32; /* Fluorescent green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form#bookingForm button:hover {
+    background-color: #00FF7F; /* Brighter green on hover */
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #32CD32; /* Fluorescent green heading */
+}
+
+h2 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #32CD32;
+}
+
+/* Add transitions to elements */
+h1, h2 {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+h1:hover, h2:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}

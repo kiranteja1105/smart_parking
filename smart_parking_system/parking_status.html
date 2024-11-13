@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Status</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #status { font-size: 24px; margin-bottom: 20px; }
+        #camera-container { margin-top: 20px; }
+        video { width: 100%; max-width: 600px; border: 2px solid #ccc; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Parking Spot Status</h1>
+    <div id="status">Loading...</div>
+    <div id="distance">Distance: N/A</div>
+    <div id="last_updated">Last Updated: N/A</div>
+
+    <div id="camera-container">
+        <h2>Live Camera View</h2>
+        <video id="camera-stream" autoplay playsinline></video>
+    </div>
+
+    <script>
+        // Function to fetch parking status
+        async function fetchParkingStatus() {
+            try {
+                const response = await fetch('get_parking_status.php');
+                const data = await response.json();
+                document.getElementById('status').innerText = "Status: " + data.status;
+                document.getElementById('distance').innerText = "Distance: " + data.distance + " cm";
+                document.getElementById('last_updated').innerText = "Last Updated: " + data.last_updated;
+            } catch (error) {
+                console.error("Error fetching parking status:", error);
+            }
+        }
+
+        // Call the function every 5 seconds to update the status
+        setInterval(fetchParkingStatus, 5000);
+        fetchParkingStatus();
+
+        // Function to start the camera stream
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const video = document.getElementById('camera-stream');
+                video.srcObject = stream;
+            } catch (error) {
+                console.error("Error accessing the camera:", error);
+                alert("Camera access was denied or not available.");
+            }
+        }
+
+        // Start camera when page loads
+        window.addEventListener('load', startCamera);
+    </script>
+</body>
+</html>
